@@ -3,7 +3,7 @@ import 'package:tik_tok_ui/theme/colors.dart';
 
 class HeaderHomePage extends StatelessWidget {
   const HeaderHomePage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

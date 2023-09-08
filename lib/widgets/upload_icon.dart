@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tik_tok_ui/theme/colors.dart';
+
 class UploadIcon extends StatelessWidget {
   const UploadIcon({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -14,35 +15,29 @@ class UploadIcon extends StatelessWidget {
         children: <Widget>[
           Positioned(
             left: 0,
-                              child: Container(
+            child: Container(
               width: 40,
               height: 35,
               decoration: BoxDecoration(
-                color: secondary,
-                 borderRadius: BorderRadius.circular(8)
-              ),
+                  color: secondary, borderRadius: BorderRadius.circular(8)),
             ),
           ),
           Positioned(
             right: 0,
-                              child: Container(
+            child: Container(
               width: 40,
               height: 35,
               decoration: BoxDecoration(
-                color: primary,
-                 borderRadius: BorderRadius.circular(8)
-              ),
+                  color: primary, borderRadius: BorderRadius.circular(8)),
             ),
           ),
           Positioned(
             right: 5,
-                              child: Container(
+            child: Container(
               width: 40,
               height: 35,
               decoration: BoxDecoration(
-                color: white,
-                borderRadius: BorderRadius.circular(8)
-              ),
+                  color: white, borderRadius: BorderRadius.circular(8)),
               child: Icon(Icons.add),
             ),
           )

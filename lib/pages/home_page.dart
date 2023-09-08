@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  late TabController _tabController;
   @override
   void initState() {
     // TODO: implement initState
@@ -71,17 +71,17 @@ class VideoPlayerItem extends StatefulWidget {
   final String shares;
   final String albumImg;
   VideoPlayerItem(
-      {Key key,
-      @required this.size,
-      this.name,
-      this.caption,
-      this.songName,
-      this.profileImg,
-      this.likes,
-      this.comments,
-      this.shares,
-      this.albumImg,
-      this.videoUrl})
+      {Key? key,
+      required this.size,
+      required this.name,
+      required this.caption,
+      required this.songName,
+      required this.profileImg,
+      required this.likes,
+      required this.comments,
+      required this.shares,
+      required this.albumImg,
+      required this.videoUrl})
       : super(key: key);
 
   final Size size;
@@ -91,7 +91,7 @@ class VideoPlayerItem extends StatefulWidget {
 }
 
 class _VideoPlayerItemState extends State<VideoPlayerItem> {
-  VideoPlayerController _videoController;
+  late VideoPlayerController _videoController;
   bool isShowPlaying = false;
 
   @override
@@ -101,14 +101,11 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
 
     _videoController = VideoPlayerController.asset(widget.videoUrl)
       ..initialize().then((value) {
-       _videoController.play();
+        _videoController.play();
         setState(() {
-          
           isShowPlaying = false;
         });
       });
-
-      
   }
 
   @override
@@ -116,11 +113,16 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
     // TODO: implement dispose
     super.dispose();
     _videoController.dispose();
-
-    
   }
-  Widget isPlaying(){
-    return _videoController.value.isPlaying && !isShowPlaying  ? Container() : Icon(Icons.play_arrow,size: 80,color: white.withOpacity(0.5),);
+
+  Widget isPlaying() {
+    return _videoController.value.isPlaying && !isShowPlaying
+        ? Container()
+        : Icon(
+            Icons.play_arrow,
+            size: 80,
+            color: white.withOpacity(0.5),
+          );
   }
 
   @override
@@ -149,8 +151,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                       VideoPlayer(_videoController),
                       Center(
                         child: Container(
-                          decoration: BoxDecoration(
-                          ),
+                          decoration: BoxDecoration(),
                           child: isPlaying(),
                         ),
                       )
@@ -206,13 +207,13 @@ class RightPanel extends StatelessWidget {
   final String profileImg;
   final String albumImg;
   const RightPanel({
-    Key key,
-    @required this.size,
-    this.likes,
-    this.comments,
-    this.shares,
-    this.profileImg,
-    this.albumImg,
+    Key? key,
+    required this.size,
+    required this.likes,
+    required this.comments,
+    required this.shares,
+    required this.profileImg,
+    required this.albumImg,
   }) : super(key: key);
 
   final Size size;

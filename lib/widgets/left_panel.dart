@@ -6,11 +6,11 @@ class LeftPanel extends StatelessWidget {
   final String caption;
   final String songName;
   const LeftPanel({
-    Key key,
-    @required this.size,
-    this.name,
-    this.caption,
-    this.songName,
+    Key? key,
+    required this.size,
+    required this.name,
+    required this.caption,
+    required this.songName,
   }) : super(key: key);
 
   final Size size;
